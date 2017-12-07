@@ -6,7 +6,7 @@
 /*   By: msharpe <mauricesharpe06@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/27 15:10:19 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/06 23:13:14 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/07 12:12:08 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char				*ft_strnstr(const char *haystack, const char *needle,
 char				*ft_strstr(const char *haystack, const char *needle);
 int					ft_islower(int c);
 int					ft_isupper(int c);
-void				ft_putchar(unsigned char c);
+void				ft_putchar(char c);
 void				ft_putstr(char const *s);
 void				ft_putendl(char const *s);
 void				ft_putchar_fd(char c, int fd);
