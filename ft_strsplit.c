@@ -6,7 +6,7 @@
 /*   By: msharpe <mauricesharpe06@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 15:00:56 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/08 15:11:22 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/08 15:29:26 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,8 @@ static int		ft_countwords(const char *str, char c)
 			word++;
 		i++;
 	}
+	if (word == 0)
+		word++;
 	return (word);
 }
 
