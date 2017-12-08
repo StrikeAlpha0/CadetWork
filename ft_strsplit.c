@@ -6,7 +6,7 @@
 /*   By: msharpe <mauricesharpe06@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 15:00:56 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/06 23:40:53 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/08 15:11:22 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,17 +60,17 @@ char			**ft_strsplit(char const *s, char c)
 	if (!s)
 		return (NULL);
 	word = ft_countwords(s, c);
-	if (!(str = (char **)malloc(sizeof(char *) * (word + 1))))
+	if (!(str = ft_memalloc(sizeof(char *) * (word + 1))))
 		return (NULL);
-	str[word] = 0;
-	while (s[i])
+	while (s[i] && j <= word)
 	{
 		while ((s[i] == c) && s[i])
 			i++;
 		while (s[i] != c && s[i])
 		{
-			str[j] = ft_word(s, c, &i);
-			j++;
+			if (j == word)
+				return (str);
+			str[j++] = ft_word(s, c, &i);
 			i++;
 		}
 	}

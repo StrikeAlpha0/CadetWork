@@ -6,7 +6,7 @@
 /*   By: msharpe <mauricesharpe06@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/28 14:23:55 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/05 23:02:29 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/07 12:59:34 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,14 @@ void		*ft_memmove(void *dest, const void *src, size_t n)
 	if (src < dest)
 	{
 		i = n;
-		while (--i > 0)
+		while (i--)
 			ptr1[i] = ptr2[i];
-		ptr1[i] = ptr2[i];
-		dest = ptr1;
-		return (dest);
 	}
 	else
 	{
 		i = -1;
 		while (++i < n)
 			ptr1[i] = ptr2[i];
-		dest = ptr1;
-		return (dest);
 	}
+	return (dest);
 }

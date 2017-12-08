@@ -6,7 +6,7 @@
 /*   By: msharpe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 00:35:50 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/06 00:36:26 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/08 00:43:10 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		ft_putstr_fd(char const *s, int fd)
 	int i;
 
 	i = 0;
-	while (s[i] != '\0')
+	while (s + i != NULL && s[i] != '\0')
 	{
 		ft_putchar_fd(s[i], fd);
 		i++;
