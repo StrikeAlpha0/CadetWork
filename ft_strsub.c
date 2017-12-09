@@ -6,7 +6,7 @@
 /*   By: msharpe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 19:01:58 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/06 00:25:00 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/09 02:41:40 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,10 @@ char		*ft_strsub(char const *s, unsigned int start, size_t len)
 	if (j < len)
 		len = j;
 	q = ft_strnew(len);
+	if (!q)
+		return (NULL);
 	if (q && len)
-		while (i < len)
+		while (i < len && s[k])
 		{
 			q[i] = s[k];
 			k++;
