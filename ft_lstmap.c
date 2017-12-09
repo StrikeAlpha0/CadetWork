@@ -6,7 +6,7 @@
 /*   By: msharpe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/06 13:54:13 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/06 18:52:33 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/08 16:00:37 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,13 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 	t_list	*action;
 	t_list	*newlst;
 
-	newlst = f(lst);
-	action = newlst;
 	if (!lst)
 		return (NULL);
-	while (lst != (NULL))
+	newlst = f(lst);
+	if (!newlst)
+		return (NULL);
+	action = newlst;
+	while (lst && lst->next)
 	{
 		lst = lst->next;
 		if (!(newlst->next = f(lst)))
@@ -29,5 +31,7 @@ t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 		else
 			newlst = newlst->next;
 	}
+	if (!action)
+		return (NULL);
 	return (action);
 }

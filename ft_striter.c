@@ -6,7 +6,7 @@
 /*   By: msharpe <mauricesharpe06@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/30 19:16:36 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/05 23:03:20 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/08 16:23:08 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,14 @@ void		ft_striter(char *s, void (*f)(char *))
 	int i;
 
 	i = 0;
+	if (!s)
+		return ;
 	if (s)
 	{
 		while (s[i] != '\0')
 		{
+			if (!f)
+				retur ;
 			(f(&s[i]));
 			i++;
 		}
