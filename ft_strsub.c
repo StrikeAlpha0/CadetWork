@@ -6,7 +6,7 @@
 /*   By: msharpe <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/02 19:01:58 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/09 02:51:43 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/09 14:35:16 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,6 @@ char		*ft_strsub(char const *s, unsigned int start, size_t len)
 	k = start;
 	i = 0;
 	j = ft_strlen(s + start);
-	if (!len)
-		return (NULL);
-	if (j < len)
-		len = j;
 	q = ft_strnew(len);
 	if (!q)
 		return (NULL);
