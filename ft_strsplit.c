@@ -6,30 +6,31 @@
 /*   By: msharpe <mauricesharpe06@gmail.com>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/12/01 15:00:56 by msharpe           #+#    #+#             */
-/*   Updated: 2017/12/10 02:22:19 by msharpe          ###   ########.fr       */
+/*   Updated: 2017/12/10 14:21:46 by msharpe          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int		ft_countwords(const char *str, char c)
+static	int		ft_wordcount(char const *s, char c)
 {
-	int word;
-	int i;
+	int		prev;
+	int		count;
 
-	i = 0;
-	word = 0;
-	if (!str)
-		return (0);
-	while (str[i])
+	prev = 0;
+	count = 0;
+	while (*s)
 	{
-		if (str[i] == c && str[i + 1] != c)
-			word++;
-		i++;
+		if (prev == 1 && c == *s)
+			prev = 0;
+		if (prev == 0 && c != *s)
+		{
+			prev = 1;
+			count++;
+		}
+		s++;
 	}
-	if (word == 0)
-		word++;
-	return (word);
+	return (count);
 }
 
 static char		*ft_word(const char *str, char c, int *i)
@@ -61,12 +62,10 @@ char			**ft_strsplit(char const *s, char c)
 	j = 0;
 	if (!s)
 		return (NULL);
-	if (s == '\0')
-		return (ft_memalloc(sizeof(char) * (1)));
-	word = ft_countwords(s, c);
-	if (!(str = ft_memalloc(sizeof(char *) * (word + 1))))
+	word = ft_wordcount(s, c);
+	if (!(str = ft_memalloc(sizeof(char *) * (word + 2))))
 		return (NULL);
-	while (s[i] && j <= word)
+	while (s[i] && j <= word && word != 0)
 	{
 		while ((s[i] == c) && s[i])
 			i++;
